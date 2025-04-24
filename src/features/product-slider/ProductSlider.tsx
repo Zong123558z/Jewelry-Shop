@@ -28,7 +28,7 @@ export const ProductSlider = () => {
 
   return (
     <div className="relative w-full flex justify-between items-start">
-      <button onClick={handlePrevClick} className={`top-[50%] left-[0vw] md:translate-y-0 translate-y-[-50%] transition-all active:scale-95 2xl:mt-[161px] lg:mt-[140px] md:mt-[180px] mt-[0px] md:relative absolute z-[50]`}>
+      <button onClick={handlePrevClick} className={`top-[50%] left-[0vw] md:translate-y-0 translate-y-[-50%] transition-all active:scale-95 2xl:mt-[161px] lg:mt-[140px] md:mt-[180px] mt-[0px] md:static absolute z-[50]`}>
         <svg className="md:w-[67px] md:h-[67px] h-50px w-50px" width="67" height="66" viewBox="0 0 67 66" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M38 17.5946L27.8346 32.1166C27.4633 32.647 27.4633 33.353 27.8346 33.8835L38 48.4054" stroke="#B3B3B3" strokeWidth="2.31081" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>                     
@@ -60,7 +60,7 @@ export const ProductSlider = () => {
         ))}
         <SliderPagination className="z-30 mt-[-30px] w-[140px] gap-[9px]" activeSlide={activeSlide} totalSlides={images.length + videos.length}/>
       </Swiper>
-      <button onClick={handleNextClick} className={`top-[50%] right-0 md:translate-y-0 translate-y-[-50%] transition-all active:scale-95 2xl:mt-[161px] lg:mt-[140px] md:mt-[180px] mt-[0px] md:relative absolute z-[50]`}>
+      <button onClick={handleNextClick} className={`top-[50%] right-0 md:translate-y-0 translate-y-[-50%] transition-all active:scale-95 2xl:mt-[161px] lg:mt-[140px] md:mt-[180px] mt-[0px] md:static absolute z-[50]`}>
         <svg className="md:w-[67px] md:h-[67px] h-50px w-50px" width="67" height="66" viewBox="0 0 67 66" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M29 17.5946L39.1654 32.1166C39.5367 32.647 39.5367 33.353 39.1654 33.8835L29 48.4054" stroke="#B3B3B3" strokeWidth="2.31081" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
