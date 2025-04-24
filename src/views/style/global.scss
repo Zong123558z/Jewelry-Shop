@@ -2,13 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-// @font-face {
-//   font-family: 'SF Pro Rounded';
-//   src: url('../fonts/SF-Pro-Rounded.ttf') format('truetype');
-//   font-weight: 400;
-//   font-style: normal;
-// }
+:root{
+  --primary: #2D2B2D;
+  --gray: #B3B3B3;
+  --purple: #6A3D96;
+  --background: #F5F6F1;
+  --gray-text: #C3C3C0;
+}
 
 body {
-  // font-family: 'SF Pro Rounded', sans-serif;
+  font-family: 'Bitter', sans-serif;
+  font-size: 400;
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  color: var(--primary);
+}
+
+.bitter {
+  font-family: 'Bitter', sans-serif;
+}
+
+.cormorantSC {
+  font-family: 'Cormorant SC', sans-serif;
+}
+
+input{
+  &:focus {
+    outline: none;
+  }
+}
+
+.swiper-pagination{
+  padding: 0px 52px !important;
+  display: flex;
+  justify-content: space-between;
+  gap: 6.5px;
+  margin-bottom: 10px !important;
+}
+.swiper-pagination-bullet {
+  width: 100% !important;
+  border-radius: 3.25px !important;
+  height: 3.25px !important;
+  transition: all 0.2s;
+  background-color: #D9D9D9 !important;
+  opacity: 0.6 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--purple) !important;
+  opacity: 1 !important;
+  min-width: 35px !important;
 }

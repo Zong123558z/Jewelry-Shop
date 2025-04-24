@@ -6,11 +6,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+      colors: {
+        'primary': '#2D2B2D',
+        'gray': '#B3B3B3',
+        'purple': '#6A3D96',
+        'background': '#F5F6F1',
+        'gray-text': '#C3C3C0'
+      }
     },
   },
   plugins: [],

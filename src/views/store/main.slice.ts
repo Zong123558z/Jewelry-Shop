@@ -1,22 +1,33 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 interface IInitialState {
-  user: any
+  user: any,
+  settings: {
+    isMobileDevice: boolean
+    filterOpen: boolean
+  }
 }
 
 const initialState: IInitialState = {
   user: null,
+  settings: {
+    isMobileDevice: false,
+    filterOpen: false
+  }
 }
 
 const mainSlice = createSlice({
   name: 'mainSlice',
   initialState: initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<IInitialState['user']>) => {
-      state.user = action.payload
+    setIsMobileDevice: (state, action: PayloadAction<IInitialState['settings']['isMobileDevice']>) => {
+      state.settings.isMobileDevice = action.payload
+    },
+    setFilterOpen: (state, action: PayloadAction<IInitialState['settings']['filterOpen']>) => {
+      state.settings.filterOpen = action.payload
     },
   },
 })
 
-export const { setUser } = mainSlice.actions
+export const { setIsMobileDevice, setFilterOpen } = mainSlice.actions
 export const mainReducer = mainSlice.reducer

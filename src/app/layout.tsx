@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import '@/views/style/global.scss'
-import { ProviderWrapper } from "@/shared/wrappers/ProviderWrapper";
-
-// if add next js font 
-// import { Inter } from "next/font/google";
-// const inter = Inter({ subsets: ["latin"] });
-// <body className={inter.className}>{children}</body>
+import { ProviderWrapper } from "@/shared/wrappers/provider-wrapper/ProviderWrapper";
+import { Header } from "@/widgets/header/Header";
+import { Footer } from "@/widgets/footer/Footer";
+import { ScrollToTopButton } from "@/shared/scroll-to-top-button/ScrollToTopButton";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ProviderWrapper>
-        <body>{children}</body>
+        <body>
+          <div>
+            <Header />
+            <div className="md:mt-[0px] mt-[-7px]">
+              {children}
+            </div>
+          </div>
+          <Footer />
+          <ScrollToTopButton />
+        </body>
       </ProviderWrapper>
     </html>
   );

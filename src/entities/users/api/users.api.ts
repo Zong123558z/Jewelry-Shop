@@ -4,14 +4,14 @@ export const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
     baseUrl: `${process.env.SERVER_URL}/users`,
-    // credentials: 'include', // если нужно передавать куки
-    // prepareHeaders: headers => {
-    //   const token = localStorage.getItem('accessToken')
-    //   if (token) {
-    //     headers.set('Authorization', `Bearer ${token}`)
-    //   }
-    //   return headers
-    // },
+    credentials: 'include',
+    prepareHeaders: headers => {
+      const token = localStorage.getItem('accessToken')
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+      return headers
+    },
   }),
   tagTypes: ['Users'],
   endpoints: build => ({
