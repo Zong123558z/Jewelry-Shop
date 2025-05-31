@@ -2,15 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --primary: #2D2B2D;
-  --gray: #B3B3B3;
-  --purple: #6A3D96;
-  --background: #F5F6F1;
-  --gray-text: #C3C3C0;
+:root {
+  --primary: #2d2b2d;
+  --gray: #b3b3b3;
+  --purple: #6a3d96;
+  --background: #f5f6f1;
+  --gray-text: #c3c3c0;
 }
 
 body {
+  overflow: visible !important;
   font-family: 'Bitter', sans-serif;
   font-size: 400;
   background: var(--background);
@@ -29,13 +30,13 @@ body {
   font-family: 'Cormorant SC', sans-serif;
 }
 
-input{
+input {
   &:focus {
     outline: none;
   }
 }
 
-.swiper-pagination{
+.swiper-pagination {
   padding: 0px 52px !important;
   display: flex;
   justify-content: space-between;
@@ -47,7 +48,7 @@ input{
   border-radius: 3.25px !important;
   height: 3.25px !important;
   transition: all 0.2s;
-  background-color: #D9D9D9 !important;
+  background-color: #d9d9d9 !important;
   opacity: 0.6 !important;
 }
 

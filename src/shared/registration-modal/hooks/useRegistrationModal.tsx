@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 type Inputs = {
   name: string
@@ -10,7 +10,7 @@ type Inputs = {
 
 interface IProps {
   handleRegistration: (data: any) => void
-} 
+}
 
 export const useRegistrationModal = ({ handleRegistration }: IProps) => {
   const {
@@ -23,11 +23,11 @@ export const useRegistrationModal = ({ handleRegistration }: IProps) => {
   const [errorPhone, setErrorPhone] = useState<string | null>(null)
 
   const phoneValidate = () => {
-    if(valuePhone === '') {
+    if (valuePhone === '') {
       setErrorPhone('обязательно')
       return false
     }
-    if(valuePhone.includes('_')) {
+    if (valuePhone.includes('_')) {
       setErrorPhone('Неверный номер')
       return false
     }
@@ -35,9 +35,9 @@ export const useRegistrationModal = ({ handleRegistration }: IProps) => {
     return true
   }
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    if(phoneValidate()) {
-      handleRegistration({...data, phone: valuePhone})
+  const onSubmit: SubmitHandler<Inputs> = data => {
+    if (phoneValidate()) {
+      handleRegistration({ ...data, phone: valuePhone.replaceAll(' ', '').replaceAll('+', '') })
     }
   }
 
@@ -47,4 +47,4 @@ export const useRegistrationModal = ({ handleRegistration }: IProps) => {
   }
 
   return { handleClick, onSubmit, handleSubmit, register, setValuePhone, setErrorPhone, errorPhone, errors }
-};
+}

@@ -1,22 +1,25 @@
 'use client'
-import { IProduct } from "@/entities/product/types/product";
-import { BasketItem } from "@/shared/basket-item/BasketItem";
-import { productList } from "@/utils/const/productList";
-import { useEffect, useState } from "react";
+import { IBasketItem } from '@/entities/catalog/types/catalog'
+import { BasketItem } from '@/shared/basket-item/BasketItem'
+import { productList } from '@/utils/const/productList'
+import { RootState } from '@/views/store/store'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export const BasketList = () => {
   const [basketList, setBasketList] = useState(productList.filter((_, index) => index < 3))
-  const [deletedBasketList, setDeletedBasketList] = useState<IProduct[]>([])
-  
-  const handleDelete = (item: IProduct) => {
+  const products = useSelector((state: RootState) => state.basket.products)
+  const [deletedBasketList, setDeletedBasketList] = useState<IBasketItem[]>([])
+
+  const handleDelete = (item: IBasketItem) => {
     setDeletedBasketList([...deletedBasketList, item])
   }
 
-  const handleRestore = ({id}: IProduct) => {
-    setDeletedBasketList(deletedBasketList.filter(item => item.id !== id))
+  const handleRestore = (item: IBasketItem) => {
+    setDeletedBasketList(deletedBasketList.filter(p => p.product.id !== item.product.id))
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     return () => {
       // delete all items in deletedBasketList
     }
@@ -24,15 +27,9 @@ export const BasketList = () => {
 
   return (
     <ul className="w-full flex flex-col md:gap-[25px] gap-[2.67vw]">
-      {basketList.map((item, index) => (
-        <BasketItem 
-          key={index} 
-          handleDelete={handleDelete} 
-          handleRestore={handleRestore}
-          deletedBasketList={deletedBasketList}
-          {...item} 
-        />
+      {products.map((item, index) => (
+        <BasketItem key={index} {...item} />
       ))}
     </ul>
-  );
-};
+  )
+}

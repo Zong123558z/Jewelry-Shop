@@ -1,5 +1,5 @@
-import { IStatusResponse } from "@/entities/general/types/general"
-import { IOrderDetail } from "@/entities/order/types/order"
+import { IStatusResponse } from '@/entities/general/types/general'
+import { IOrderDetail } from '@/entities/order/types/order'
 
 export interface IProfile {
   id: number
@@ -16,7 +16,6 @@ export interface IMyProfile extends IProfile {
   activeOrders: IOrderDetail[]
   historyOrders: IOrderDetail[]
 }
-
 
 export interface IGetProfileResponse extends IStatusResponse {
   profile: IMyProfile

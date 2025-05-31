@@ -1,12 +1,13 @@
+import { ACCESS_TOKEN } from '@/utils/const/consts'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const usersApi = createApi({
   reducerPath: 'usersApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `${process.env.SERVER_URL}/users`,
+    baseUrl: `${process.env.NEXT_PUBLIC_SERVER_URL}/users`,
     credentials: 'include',
     prepareHeaders: headers => {
-      const token = localStorage.getItem('accessToken')
+      const token = localStorage.getItem(ACCESS_TOKEN)
       if (token) {
         headers.set('Authorization', `Bearer ${token}`)
       }

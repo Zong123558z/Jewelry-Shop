@@ -1,5 +1,9 @@
 'use client'
+import { useRegisterMutation } from '@/entities/auth/api/auth.api'
+import { USER_STATUS } from '@/utils/const/consts'
+import { RootState } from '@/views/store/store'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Error } from './ui/Error'
 import { Registration } from './ui/Registration'
 import { Success } from './ui/Success'
@@ -11,15 +15,17 @@ interface IProps {
 
 export const RegistrationModal = (props: IProps) => {
   const [isSuccess, setIsSuccess] = useState(false)
-  const [isError, setIsError] = useState(false)
+
+  const [register, { data, error, isLoading }] = useRegisterMutation()
+  const userStatus = useSelector((state: RootState) => state.user.status)
 
   const handleRegistration = (data: any) => {
-    setIsError(true)
+    register(data)
   }
 
-  if (isSuccess) return <Success {...props} />
+  if (userStatus === USER_STATUS.PENDING || data?.success) return <Success {...props} />
 
-  if (isError) return <Error {...props} />
+  if (userStatus === USER_STATUS.ERROR) return <Error {...props} />
 
   return (
     <>

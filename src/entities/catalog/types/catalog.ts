@@ -1,4 +1,4 @@
-import { IPageRequest, IPageResponse, IStatusResponse } from "@/entities/general/types/general"
+import { IPageRequest, IPageResponse, IStatusResponse } from '@/entities/general/types/general'
 
 export interface IProduct {
   id: number
@@ -7,6 +7,12 @@ export interface IProduct {
   price: number
   pricePerGram: number
   images: string[]
+}
+export interface IBasketItem {
+  product: IProductDetail
+  amount: number
+  isDeleted: boolean
+  size: ISize
 }
 
 export interface IProductPhoto {
@@ -19,6 +25,13 @@ export interface IProductVideo {
   videoPath: string
 }
 
+export interface ISize {
+  id: number
+  name: string
+  price: number
+  price_per_gram: number
+  stock: boolean
+}
 export interface IProductDetail {
   id: number
   article: string
@@ -28,23 +41,26 @@ export interface IProductDetail {
   pricePerGram: number
   photos: IProductPhoto[]
   videos: IProductVideo[]
-  recommendations: {
-    id: number
-    article: string
-    name: string
-    images: string[]
-  }[]
+  sizes: ISize[]
+  recommendations: IProduct[]
 }
 
 export interface IGetProductsRequest extends IPageRequest {
-  minPrice?: number
-  maxPrice?: number
+  // min_price?: number
+  // max_price?: number
   brandIds?: number[]
-  metal?: string
-  stone?: string
-  category?: string
+  sizeIds?: number[]
+  stoneIds?: number[]
+  productTypeId?: number | null
+  q: string
 }
-
+export interface IParsedProductsRequest extends IPageRequest {
+  brand_ids?: number[]
+  size_ids?: number[]
+  stone_ids?: number[]
+  product_type_id?: number
+  q: string
+}
 
 export interface IGetProductsResponse extends IPageResponse {
   products: IProduct[]

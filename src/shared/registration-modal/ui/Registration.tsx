@@ -1,43 +1,41 @@
 'use client'
-import { ModalContentWrapper } from "../../wrappers/modal-content-wrapper/ModalContentWrapper";
-import { InputPhone } from "../../input-phone/InputPhone";
-import { useRegistrationModal } from "./../hooks/useRegistrationModal";
+import { InputPhone } from '../../input-phone/InputPhone'
+import { ModalContentWrapper } from '../../wrappers/modal-content-wrapper/ModalContentWrapper'
+import { useRegistrationModal } from './../hooks/useRegistrationModal'
 
 interface IProps {
   isOpen: boolean
   setIsOpen: (isOpen: boolean) => void
   handleRegistration: (data: any) => void
-} 
+}
 
-export const Registration = ({isOpen, setIsOpen, handleRegistration}: IProps) => {
-  const { 
-    errors,
-    errorPhone, 
-    handleClick, 
-    handleSubmit, 
-    onSubmit, 
-    register, 
-    setErrorPhone, 
-    setValuePhone, 
-  } = useRegistrationModal({handleRegistration})
+export const Registration = ({ isOpen, setIsOpen, handleRegistration }: IProps) => {
+  const { errors, errorPhone, handleClick, handleSubmit, onSubmit, register, setErrorPhone, setValuePhone } =
+    useRegistrationModal({ handleRegistration })
 
   return (
-    <ModalContentWrapper isOpen={isOpen} setIsOpen={setIsOpen} title="Регистрирация" buttonText="Продолжить" onClick={handleClick}>
+    <ModalContentWrapper
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      title="Регистрация"
+      buttonText="Продолжить"
+      onClick={handleClick}
+    >
       <div className="md:mb-[25.5px] mb-[6.14vw]">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="md:mb-[25px] mb-[3vw] flex items-center justify-between relative md:p-[0px_0px_17.5px_8px] p-[0vw_0vw_3vw_2.94vw] border-b-[1px] border-[#ECECEC]">
-            <input 
-              placeholder="Имя" 
+            <input
+              placeholder="Имя"
               className="md:text-[18px] text-[3.73vw] font-normal focus:outline-none md:w-[277px] w-175px placeholder:text-gray"
-              {...register("name", {
+              {...register('name', {
                 required: {
                   value: true,
-                  message: 'обязательно'
+                  message: 'обязательно',
                 },
                 pattern: {
                   value: /^[A-Za-z\s]+$/,
-                  message: 'Недопустимые символы'
-                }
+                  message: 'Недопустимые символы',
+                },
               })}
             />
             <div className="absolute right-0">
@@ -46,18 +44,18 @@ export const Registration = ({isOpen, setIsOpen, handleRegistration}: IProps) =>
           </div>
 
           <div className="md:mb-[25px] mb-[3vw] flex items-center justify-between relative md:p-[0px_0px_17.5px_8px] p-[0vw_0vw_3vw_2.94vw] border-b-[1px] border-[#ECECEC]">
-            <input 
-              placeholder="Компания" 
+            <input
+              placeholder="Компания"
               className="md:text-[18px] text-[3.73vw] font-normal focus:outline-none md:w-[277px] w-175px placeholder:text-gray"
-              {...register("company", {
+              {...register('company', {
                 required: {
                   value: true,
-                  message: 'обязательно'
+                  message: 'обязательно',
                 },
                 pattern: {
                   value: /^[A-Za-z\s]+$/,
-                  message: 'Недопустимые символы'
-                }
+                  message: 'Недопустимые символы',
+                },
               })}
             />
             <div className="absolute right-0">
@@ -66,18 +64,18 @@ export const Registration = ({isOpen, setIsOpen, handleRegistration}: IProps) =>
           </div>
 
           <div className="md:mb-[25px] mb-[3vw] flex items-center justify-between relative md:p-[0px_0px_17.5px_8px] p-[0vw_0vw_3vw_2.94vw] border-b-[1px] border-[#ECECEC]">
-            <input 
+            <input
               placeholder="ИНН"
               className="md:text-[18px] text-[3.73vw] font-normal focus:outline-none md:w-[277px] w-175px placeholder:text-gray"
-              {...register("inn", {
+              {...register('inn', {
                 required: {
                   value: true,
-                  message: 'обязательно'
+                  message: 'обязательно',
                 },
                 pattern: {
                   value: /^\d{10}$|^\d{12}$/,
-                  message: 'Неверный ИНН'
-                }
+                  message: 'Неверный ИНН',
+                },
               })}
             />
             <div className="absolute right-0">
@@ -94,5 +92,5 @@ export const Registration = ({isOpen, setIsOpen, handleRegistration}: IProps) =>
         </form>
       </div>
     </ModalContentWrapper>
-  );
-};
+  )
+}

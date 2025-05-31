@@ -1,15 +1,14 @@
 'use client'
-import InputMask from 'react-input-mask';
-import { ChangeEvent, useState } from "react";
-import { CountryFlags } from "../country-flags/CountryFlags";
-
+import { ChangeEvent, useState } from 'react'
+import InputMask from 'react-input-mask-next'
+import { CountryFlags } from '../country-flags/CountryFlags'
 
 interface IProps {
   setValuePhone: (valuePhone: string) => void
   setError: (error: string | null) => void
 }
 
-export const InputPhone = ({setValuePhone, setError}: IProps) => {
+export const InputPhone = ({ setValuePhone, setError }: IProps) => {
   const [value, setValue] = useState('+7')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +18,7 @@ export const InputPhone = ({setValuePhone, setError}: IProps) => {
 
   return (
     <div className="flex items-center md:gap-[14px] gap-[3.73vw]">
-      <CountryFlags setValue={setValue}/>
+      <CountryFlags setValue={setValue} />
       <InputMask
         placeholder={value}
         mask={`${value} 999 999 99 99`}
@@ -27,5 +26,5 @@ export const InputPhone = ({setValuePhone, setError}: IProps) => {
         onChange={handleChange}
       />
     </div>
-  );
-};
+  )
+}

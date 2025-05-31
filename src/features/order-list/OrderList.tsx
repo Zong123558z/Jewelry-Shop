@@ -1,8 +1,13 @@
-import { OrderItem } from "@/shared/order-item/OrderItem";
+import { useGetProfileQuery } from '@/entities/profile/api/profile.api'
+import { OrderItem } from '@/shared/order-item/OrderItem'
 
 export const OrderList = () => {
+  const { data, error, isLoading } = useGetProfileQuery()
   return (
     <div className="lg:p-[30px_42px_0px] p-[5.34vw_0px_0px] flex flex-col md:gap-[15px] gap-[2.67vw]">
+      {/* {data?.profile.activeOrders.map((item, index) => (
+        // <OrderItem key={index} {...item} />
+      ))} */}
       {/* {orderList.map((item, index) => (
         <OrderItem key={index} {...item} />
       ))} */}
@@ -10,5 +15,5 @@ export const OrderList = () => {
       <OrderItem />
       <OrderItem />
     </div>
-  );
-};
+  )
+}

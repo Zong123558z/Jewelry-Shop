@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import path from 'path';
+import path from 'path'
 
 const nextConfig = {
   sassOptions: {
@@ -11,9 +11,9 @@ const nextConfig = {
     `,
   },
   // Чтобы подключить возможность отображать ссылки на изображения
-  // images: {
-  //   domains: ['example.com'],  // Замените на домен, с которого будете загружать изображения
-  // }, 
+  images: {
+    domains: ['i.imgur.com'],
+  },
 }
 
-export default nextConfig;
+export default nextConfig

@@ -1,10 +1,8 @@
-import { OrderStatus, PaymentMethod } from "@/entities/general/types/general.enum"
+import { OrderStatus, PaymentMethod } from '@/entities/general/types/general.enum'
 
 export interface IOrderItem {
   id: number
-  name: string
   quantity: number
-  unitPrice: number
 }
 
 export interface IOrderDetail {
