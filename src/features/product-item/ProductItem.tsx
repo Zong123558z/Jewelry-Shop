@@ -22,7 +22,11 @@ export const ProductItem = ({ product }: IProps) => {
         spaceBetween={10}
         slidesPerView={1}
         className="w-full"
-        onSlideChange={swiper => setActiveSlide(swiper.activeIndex)}
+        onSlideChange={(swiper) => {
+          const currentIndex = swiper.realIndex;
+          setActiveSlide(currentIndex);
+        }}
+        loop={true}
       >
         {product.images.map((image, index) => (
           <SwiperSlide key={index} className="w-full overflow-hidden rounded-[16px]">

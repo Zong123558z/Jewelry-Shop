@@ -14,6 +14,9 @@ export const ProductList = ({ productList }: IProps) => {
   
   return (
     <div className="">
+      {/* <ul className="grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-[20px] gap-[2.4vw_4.8vw]">
+        <ProductItem product={{id: 1, article: 'article', images: ['https://i.imgur.com/string', 'https://i.imgur.com/string', 'https://i.imgur.com/string'], name: 'name', price: 1000, pricePerGram: 100}} />
+      </ul> */}
       {products.length > 0 && (
         <>
           <ul className="grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-[20px] gap-[2.4vw_4.8vw]">
