@@ -2,18 +2,22 @@
 import { RootState } from '@/views/store/store'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 export const Header = () => {
+  const router = useRouter()
   const pathname = usePathname().split('/')[1]
+  const dispatch = useDispatch()
+
+  const userStatus = useSelector((state: RootState) => state.user.status)
+  const productsInBasket = useSelector((state: RootState) => state.basket.products)
+
   const busket = true
   const support = true
   const profile = true
-  const dispatch = useDispatch()
-  const userStatus = useSelector((state: RootState) => state.user.status)
-  const productsInBasket = useSelector((state: RootState) => state.basket.products)
+  
   const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
     // if (userStatus !== USER_STATUS.ACTIVE) {
     //   e.preventDefault()
@@ -66,16 +70,15 @@ export const Header = () => {
             </div>
           </Link>
         </nav>
-        <Link href={'/home'} onClick={handleLinkClick}>
-          <Image
-            src={'/images/header/logo.png'}
-            alt="logo"
-            quality={100}
-            width={126}
-            height={37}
-            className="lg:h-[37px] md:h-[33px] h-[27px] w-full"
-          />
-        </Link>
+        <Image
+          onClick={() => router.push('/')}
+          src={'/images/header/logo.png'}
+          alt="logo"
+          quality={100}
+          width={126}
+          height={37}
+          className="lg:h-[37px] md:h-[33px] h-[27px] w-full"
+        />
         <nav className="flex items-center justify-end md:gap-[50px] gap-[26px]">
           <Link href={'/support'} className="relative" onClick={handleLinkClick}>
             <div className="md:block hidden">

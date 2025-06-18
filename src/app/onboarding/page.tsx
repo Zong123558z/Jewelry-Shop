@@ -45,7 +45,7 @@ export default function Page() {
         {list.map((image, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col justify-between h-screen relative">
-              <div className="w-full">
+              <div className="w-full mt-[-20vw]">
                 <ImageWithSkeleton
                   src={image}
                   alt="product-img"
@@ -56,7 +56,7 @@ export default function Page() {
               </div>
               <div className="w-full text-black absolute bottom-[14.7vw] left-0">
                 <div className="flex flex-col gap-[4.5vw] p-[0px_6.4vw]">
-                  <h4 className="cormorantSC fs-28 font-bold">Краткий Заголовок для понимания</h4>
+                  <h4 className="cormorantSC font-bold fs-28 text-[#000000]">Краткий Заголовок для понимания</h4>
                   <p className="fs-15 font-medium">
                     Ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
                     rem aperiam, eaque ipsa quae ab illo inventore veritatis{' '}

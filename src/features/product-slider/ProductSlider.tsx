@@ -60,7 +60,11 @@ export const ProductSlider = ({ product }: IProps) => {
         spaceBetween={10}
         slidesPerView={1}
         className="flex justify-between 2xl:w-[460px] lg:w-[400px] md:w-[500px] w-full relative"
-        onSlideChange={swiper => setActiveSlide(swiper.activeIndex)}
+        onSlideChange={(swiper) => {
+          const currentIndex = swiper.realIndex;
+          setActiveSlide(currentIndex);
+        }}
+        loop={true}
       >
         {product.videos.map((video, index) => (
           <SwiperSlide key={index} className="w-full">
